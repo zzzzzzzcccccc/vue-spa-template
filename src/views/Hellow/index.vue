@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     HelloWorld!
+    <span class="a">1231</span>
   </div>
 </template>
 
@@ -14,9 +15,14 @@
     },
     methods: {
       testAjax: async (params) => {
-        const data = await service.testAjax(params)
-        console.log(data)
+        const res = await service.testAjax(params)
+        const msg = res.msg
+        const data = res.data
+        console.log(msg, data)
       }
     }
   }
 </script>
+
+<style lang="less">
+</style>
