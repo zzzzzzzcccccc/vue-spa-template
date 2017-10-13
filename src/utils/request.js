@@ -1,7 +1,7 @@
 import axios from 'axios'
 import qs from 'qs'
 
-const FILE_HEADER = { 'Content-Type': 'multipart/form-data' };
+const FILE_HEADER = { 'Content-Type': 'multipart/form-data' }
 
 /*
 * 拼接hash值并且转码
@@ -15,7 +15,7 @@ const hashQueryString = (params) => {
 * */
 const enCodeString = (params) => {
   for (let key in params) {
-    params[key] = encodeURIComponent(params[key]);
+    params[key] = encodeURIComponent(params[key])
   }
   return params
 }
@@ -35,7 +35,6 @@ const checkError = (err) => {
 * @params 必填
 * @isEncode 选填 不填则为false 不进行字符串转码
 * */
-
 const apiGet = (url, params, isEnCode) => {
   return new Promise((resolve, reject) => {
     if (isEnCode === null || isEnCode === '' || isEnCode === undefined) {
@@ -69,8 +68,8 @@ const apiFile = (url, form) => {
     axios.post(url, form, { headers: FILE_HEADER }).then((res) => {
       resolve(res.data)
     }).catch((err) => {
-      reject(err);
-      checkError(err);
+      reject(err)
+      checkError(err)
     })
   })
 }

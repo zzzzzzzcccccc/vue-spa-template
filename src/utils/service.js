@@ -1,9 +1,9 @@
 import api from './api'
-import requres from './requres'
+import request from './request'
 
 class Service {
   testAjax (params) {
-    return requres.apiGet(api.test, params)
+    return request.apiGet(api.test, params)
   }
 }
 
