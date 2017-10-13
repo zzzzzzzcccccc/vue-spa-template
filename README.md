@@ -1,4 +1,4 @@
-> xm-vue-template
+> vue-template
 
 ````
 @components 公共组件库 方便views调用
