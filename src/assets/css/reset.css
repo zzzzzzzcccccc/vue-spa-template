@@ -1,6 +1,3 @@
-*{
-  font-family: "PingFangSC-Regular", "Helvetica Neue", Helvetica, Arial, "微软雅黑", sans-serif
-}
 html, body, #app{
   height: 100%;
 }
@@ -128,3 +125,17 @@ i {
 .block {
   display: block !important;
 }
+.p_top{
+  top: 0;
+}
+.p_left{
+  left: 0;
+}
+.p_right{
+  right: 0;
+}
+.p_bottom{
+  bottom: 0;
+}
+
+
