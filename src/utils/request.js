@@ -1,31 +1,9 @@
 import axios from 'axios'
 import qs from 'qs'
+import Utils from './Utils'
+import resHelp from './resHelp'
 
 const FILE_HEADER = { 'Content-Type': 'multipart/form-data' }
-
-/*
-* 拼接hash值并且转码
-* */
-const hashQueryString = (params) => {
-  return Object.keys(params).map(key => `${key}=${encodeURIComponent(params[key])}`.join('&'))
-}
-
-/*
-* 对象值转码
-* */
-const enCodeString = (params) => {
-  for (let key in params) {
-    params[key] = encodeURIComponent(params[key])
-  }
-  return params
-}
-
-/*
-* catch错误返回公共方法
-* */
-const checkError = (err) => {
-  return err
-}
 
 /*
 * @apiGet 公共get请求
@@ -40,11 +18,11 @@ const apiGet = (url, params, isEnCode) => {
     if (isEnCode === null || isEnCode === '' || isEnCode === undefined) {
       isEnCode = false
     }
-    axios.get(url, { params: isEnCode === false ? params : enCodeString(params) }).then((res) => {
+    axios.get(url, { params: isEnCode === false ? params : Utils.enCodeString(params) }).then((res) => {
       resolve(res.data)
     }).catch((err) => {
       reject(err)
-      checkError(err)
+      resHelp.serverError()
     })
   })
 }
@@ -54,11 +32,11 @@ const apiPost = (url, params, isEnCode) => {
     if (isEnCode === null || isEnCode === '' || isEnCode === undefined) {
       isEnCode = false
     }
-    axios.post(url, qs.stringify(isEnCode === false ? params : enCodeString(params))).then((res) => {
+    axios.post(url, qs.stringify(isEnCode === false ? params : Utils.enCodeString(params))).then((res) => {
       resolve(res.data)
     }).catch((err) => {
       reject(err)
-      checkError(err)
+      resHelp.serverError()
     })
   })
 }
@@ -69,15 +47,12 @@ const apiFile = (url, form) => {
       resolve(res.data)
     }).catch((err) => {
       reject(err)
-      checkError(err)
+      resHelp.serverError()
     })
   })
 }
 
 export default {
-  hashQueryString,
-  enCodeString,
-
   apiGet,
   apiPost,
   apiFile
