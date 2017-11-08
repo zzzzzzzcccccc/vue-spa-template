@@ -6,18 +6,16 @@
 </template>
 
 <script>
-  import service from '../../utils/service'
+  import { testAjax } from '../../utils/service'
 
   export default {
     name: 'HelloWorld',
     mounted () {
-      this.testAjax({ compnayId: 1 })
+      this.ajaxDemo()
     },
     methods: {
-      testAjax: async (params) => {
-        const res = await service.testAjax(params)
-        const msg = res.msg
-        const data = res.data
+      ajaxDemo: async (params) => {
+        const { data, msg } = await testAjax(params || {})
         console.log(msg, data)
       }
     }

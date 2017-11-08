@@ -1,12 +1,8 @@
 /*
-* 公共通用小方法
-* */
-
-/*
 * 拼接hash值并且转码
 * @params 传入需要的对象
 * */
-const hashQueryString = (params) => {
+export function hashQueryString (params) {
   return Object.keys(params).map(key => `${key}=${encodeURIComponent(params[key])}`.join('&'))
 }
 
@@ -14,14 +10,22 @@ const hashQueryString = (params) => {
 * 对象值转码
 * @params 传入需要的对象
 * */
-const enCodeString = (params) => {
+export function enCodeString (params) {
   for (let key in params) {
     params[key] = encodeURIComponent(params[key])
   }
   return params
 }
-
-export default {
-  hashQueryString,
-  enCodeString
+/*
+* 验证空值
+* @data 需要验证的值
+* 0是空
+* 1不为空
+* */
+export function checkNull (data) {
+  if (data === '' || data === null || data === undefined) return 0
+  else return 1
 }
+
+
+
