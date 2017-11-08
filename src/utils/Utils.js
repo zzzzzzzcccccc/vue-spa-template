@@ -16,6 +16,7 @@ export function enCodeString (params) {
   }
   return params
 }
+
 /*
 * 验证空值
 * @data 需要验证的值
