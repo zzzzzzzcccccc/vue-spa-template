@@ -5,8 +5,8 @@ import App from './App.vue'
 import { createRouter } from "./router/index"
 import { createStore } from "./store/index"
 // 创建 路由 状态机 实例
-const router = new createRouter()
-const store = new createStore()
+const router = createRouter()
+const store = createStore()
 // 写入全局样式
 import '@/assets/css/reset.css'
 
