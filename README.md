@@ -10,5 +10,5 @@ helper 处理ajax请求的各种事件
 
 ```
 启动 npm start
-编译 npm build
+编译 npm run build
 ```

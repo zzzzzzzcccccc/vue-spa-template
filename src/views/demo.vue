@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     hello!
+    <button>hello</button>
   </div>
 </template>
 
@@ -15,8 +16,7 @@
     },
     methods: {
       onReady () {
-        getUser({
-          callback: (msg, data) => {
+        getUser({cb: (msg, data) => {
             console.log(msg, data)
           }
         })
@@ -25,3 +25,10 @@
   }
 </script>
 
+<style lang="stylus" type="text/stylus">
+  .hello
+    color yellow
+    button
+     color red
+     background blue
+</style>
