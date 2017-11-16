@@ -1,21 +1,14 @@
-# vue-template
+>vue-template
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+```
+api 接口地址
+Utils 公共模块方法(仅用于小方法)
+request 封装的axios
+http 执行http请求公共模块
+helper 处理ajax请求的各种事件
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+```
+启动 npm start
+编译 npm build
+```
